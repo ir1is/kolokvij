@@ -12,3 +12,4 @@ objekt2.init(10,5)
 # print(objekt2.akceleracija(3))
 
 objekt1.fall()
+objekt1.trajanje()

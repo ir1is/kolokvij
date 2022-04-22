@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import math
 import numpy as np
 class ProjectileDrop:
     def __init__(self):
@@ -12,7 +13,7 @@ class ProjectileDrop:
         self.h=0
         
     def init(self,h,v0x):
-        self.y.append(self.h)
+        self.y.append(h)
         self.x.append(0)
         self.t.append(0)
         self.vx.append(v0x)
@@ -53,6 +54,27 @@ class ProjectileDrop:
         plt.show()
         print(self.y)
 
+    def trajanje(self):
+        self.time= np.linspace(0.001,0.1,100)
+        for i in len(self.time):
+            self.t.append(self.t[-1]+i)
+        plt.plot(self.time,self.t)
+        plt.set_xlabel('dt')
+        plt.set_ylabel('y')
+        plt.show()
+
+    def meta(self,x_m,w,vx_v):
+        momenat =0
+        y_m=0
+        while True:
+            while (math.dist([x_m,y_m],self.x[-1],self.y[-1]))>w and self.y[-1]>0:
+                self.fall()
+            if self.y[-1]<0:
+                momenat+=self.dt
+            else:
+                break
+        return momenat
+        plt.plot(self.)
 
 
-            
+
